@@ -1,42 +1,33 @@
-const buttons = document.querySelectorAll('button');
-var rabbish_click = false;
-var rabbish_size = 20;
-let p_click = false;
-buttons.forEach((button) => {
-  if (button.getAttribute('id') === 'rabbish'){
-    button.addEventListener('click', async () => {
-      if (!rabbish_click) {
-        rabbish_click = true;
-        button.style.backgroundColor = "red";
-        rabbish_size = prompt('Введите ширину ластика (1-100)');
-        if(rabbish_size < 1 || rabbish_size > 100 || isNaN(rabbish_size)){
-          rabbish_size = 3;
-          alert("Ваше значение некорректно. Включено значение по уолчанию - 3");
-        }
-        else{
-          alert('Ластик включен. Ширина - ' + rabbish_size);
-        }
-        context.strokeStyle = "white";
-        context.lineWidth = rabbish_size;
-      }
-    else {
-      rabbish_click = false;
-      button.style.backgroundColor = "gray";
-      context.strokeStyle = "black";
-      context.lineWidth = 1;
-    }
-  });
-}
-  else if (button.getAttribute('id') === 'p'){
-    button.addEventListener('click', async () => {
-      if (!p_click) {
-        p_click = true;
-        button.style.backgroundColor = "red";
-      }
-      else {
-        p_click = false;
-        button.style.backgroundColor = "gray";
-      }
-    });
+const rabbish = document.getElementById("rabbish");
+const pen = document.getElementById("pen");
+
+pen.addEventListener('click', async () => {
+  pen.style.backgroundColor = "red";
+  rabbish.style.backgroundColor = "gray";
+  let penSize = parseInt(prompt('Введите ширину ручки (1-20)'));
+  if (!isNaN(penSize) && penSize > 0 && penSize <= 20) {
+    alert('Ручка включена. Ширина ' + penSize);
+    // Вызываем контекст из функции обратного вызова
+    context.lineWidth = penSize;
+    context.strokeStyle = "black";
+  } else {
+    context.lineWidth = 1;
+    context.strokeStyle = "black";
+    alert("Некорректный ввод. Ширина ручки по умолчанию 1");
+  }
+});
+
+rabbish.addEventListener('click', async () => {
+  pen.style.backgroundColor = "gray";
+  rabbish.style.backgroundColor = "red";
+  let rabbishSize = parseInt(prompt('Введите ширину ластика (1-100)'));
+  if (!isNaN(rabbishSize) && rabbishSize > 0 && rabbishSize <= 100) {
+    alert('Ластик включен. Ширина ' + rabbishSize);
+    context.lineWidth = rabbishSize;
+    context.strokeStyle = "white";
+  } else {
+    context.lineWidth = 10;
+    context.strokeStyle = "white";
+    alert("Некорректный ввод. Ширина ручки по умолчанию 10");
   }
 });
