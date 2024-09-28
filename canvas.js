@@ -1,8 +1,11 @@
 let canvas = document.getElementById("canvas"),
+let Width = 1;
 context = canvas.getContext("2d"),
 mouse = { x:0, y:0 },
 draw = false;
-context.strokeStyle = "black";
+
+context.lineWidth = Width; // ширина 
+context.strokeStyle = "black"; // цвет
 
 canvas.addEventListener("mousedown", function(e){
     let ClientRect = this.getBoundingClientRect();
