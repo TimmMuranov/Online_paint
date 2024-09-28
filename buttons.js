@@ -1,6 +1,6 @@
 const buttons = document.querySelectorAll('button');
-let rabbish_click = false;
-let rabbish_size = 20;
+var rabbish_click = false;
+var rabbish_size = 20;
 let p_click = false;
 buttons.forEach((button) => {
   if (button.getAttribute('id') === 'rabbish'){
@@ -10,16 +10,20 @@ buttons.forEach((button) => {
         button.style.backgroundColor = "red";
         rabbish_size = prompt('Введите ширину ластика (1-100)');
         if(rabbish_size < 1 || rabbish_size > 100 || isNaN(rabbish_size)){
-          rabbish_size = 20;
-          alert("Ваше значение некорректно. Включено значение по уолчанию - 20");
+          rabbish_size = 3;
+          alert("Ваше значение некорректно. Включено значение по уолчанию - 3");
         }
         else{
           alert('Ластик включен. Ширина - ' + rabbish_size);
         }
+        context.strokeStyle = "white";
+        context.lineWidth = rabbish_size;
       }
     else {
       rabbish_click = false;
       button.style.backgroundColor = "gray";
+      context.strokeStyle = "black";
+      context.lineWidth = 1;
     }
   });
 }
