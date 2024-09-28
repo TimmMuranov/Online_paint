@@ -2,7 +2,8 @@ let canvas = document.getElementById("canvas"),
 context = canvas.getContext("2d"),
 mouse = { x:0, y:0 },
 draw = false;
-context.strokeStyle = "black";
+context.strokeStyle = "white";
+context.lineWidth = 1;
 
 canvas.addEventListener("mousedown", function(e){
     let ClientRect = this.getBoundingClientRect();
