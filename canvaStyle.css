@@ -1,0 +1,11 @@
+.canva{
+    border: 5px solid aqua;
+}
+.divFromCanva{
+  width: 50%;
+  margin: auto;
+}
+.but{
+    position: absolute;
+    margin: 5px;
+}
