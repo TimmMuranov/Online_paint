@@ -5,7 +5,7 @@ draw = false;
 context.strokeStyle = "white";
 context.lineWidth = 1;
 
-canvas.addEventListener("mousedown", function(e){
+canvas.addEventListener("touchstart", function(e){
     let ClientRect = this.getBoundingClientRect();
     mouse.x = e.clientX - ClientRect.left;
     mouse.y = e.clientY - ClientRect.top;
@@ -14,7 +14,7 @@ canvas.addEventListener("mousedown", function(e){
     context.moveTo(mouse.x, mouse.y);
 });
 
-canvas.addEventListener("mousemove", function(e){
+canvas.addEventListener("touchmove", function(e){
     if(draw === true){
         let ClientRect = this.getBoundingClientRect();
         mouse.x = e.clientX - ClientRect.left;
@@ -24,7 +24,7 @@ canvas.addEventListener("mousemove", function(e){
     }
 });
 
-canvas.addEventListener("mouseup", function(e){
+canvas.addEventListener("touchend", function(e){
     let ClientRect = this.getBoundingClientRect();
     mouse.x = e.clientX - ClientRect.left;
     mouse.y = e.clientY - ClientRect.top;
