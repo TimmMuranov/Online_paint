@@ -1,5 +1,6 @@
 .canva{
     border: 5px solid aqua;
+    touch-action: none;
 }
 .divFromCanva{
   width: 50%;
