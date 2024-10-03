@@ -11,12 +11,15 @@
 <canvas id="canvas" width="500px" height="500px"></canvas>
 </div>
 <div class="controls">
-    <button id="freeDrawBtn" style="background-color: gray">Перо</button>
-    <input type="number" id="brushSize" value="5" min="1" max="50">
+    <button id="freeDrawBtn" style="background-color: gray">Ручка</button>
+    Размер:
+    <input size="4" id="brushSize" value="5" min="1" max="50">
     <button class="butRight" style="background-color: green;">Сохранить</button>
     <p>
     <button id="eraserBtn" style="background-color: gray">Стерка</button>
-    <input type="number" id="eraserSize" value="10" min="1" max="50">
+    Размер:
+    <input size="4" id="eraserSize" value="10" min="1" max="50">
+    <button class="butRight" style="background-color: red;" onclick="window.location.reload()">Удалить</button>
 </div>
 <script src="script.js"></script>
 </body>
