@@ -1,6 +1,6 @@
 canvas {
-    border: 1px solid black;
-    touch-action: none; /* Отключаем жесты браузера на сенсорных устройствах */
+    border: 5px solid aqua;
+    touch-action: none;
 }
 .active {
     background-color: #ccc; /* Цвет активной кнопки */
