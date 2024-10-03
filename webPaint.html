@@ -1,29 +1,22 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Стили</title>
-    <link href="canvaStyle.css" rel="stylesheet">
-  </head>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рисовалка</title>
+<link href="style.css" rel="stylesheet">
+</head>
 <body>
-  <div class='divFromCanva'>
-      <canvas id="canvas" width="500px" height="300px"
-      class='canva'></canvas><p>
-      <hr>
-      <button id='rabbish' style='background-color:gray;'>Ластик</button>
-      Размер:
-      <input id='r' onchange="updateInput()" size="3"><p>
-      <button id='pen' style='background-color:gray;'>Ручка</button>
-      Размер:
-      <input id='p' onchange="updateInput()" size="3"><p>
-      <hr>
-      <button name= 'func' id='right' style='background-color:gray;'>Прямая</button>
-      <button name= 'func' id='square' style='background-color:gray;'>Квадрат</button>
-      <button name= 'func' id='square1' style='background-color:gray;'>Прямоугольник</button>
-      <button name= 'func' id='acr' style='background-color:gray;'>Круг</button>
-  </div>
-  <script src="canvas.js"></script>
-  <script src="buttons.js"></script>
+<div class = "l1">
+<canvas id="canvas" width="500px" height="500px"></canvas>
+</div>
+<div class="controls">
+    <button id="freeDrawBtn">Перо</button>
+    <input type="number" id="brushSize" value="5" min="1" max="50">
+    <p>
+    <button id="eraserBtn">Стерка</button>
+    <input type="number" id="eraserSize" value="10" min="1" max="50">
+</div>
+<script src="script.js"></script>
 </body>
 </html>
