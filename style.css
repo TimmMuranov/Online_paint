@@ -1,0 +1,10 @@
+canvas {
+    border: 1px solid black;
+    touch-action: none; /* Отключаем жесты браузера на сенсорных устройствах */
+}
+.active {
+    background-color: #ccc; /* Цвет активной кнопки */
+}
+.controls {
+    margin-bottom: 10px;
+}
