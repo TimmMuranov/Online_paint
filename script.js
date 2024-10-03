@@ -19,10 +19,14 @@ canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', stopDrawing);
 
 freeDrawBtn.addEventListener('click', () => {
+    freeDrawBtn.style = "background-color: red";
+    eraserBtn.style = "background-color: gray";
     mode = 'free';
     setActiveButton(freeDrawBtn);
 });
 eraserBtn.addEventListener('click', () => {
+    freeDrawBtn.style = "background-color: gray";
+    eraserBtn.style = "background-color: red";
     mode = 'eraser';
     setActiveButton(eraserBtn);
 });

@@ -3,15 +3,13 @@ canvas {
     touch-action: none;
     margin: auto;
 }
-.active {
-    background-color: #ccc; /* Цвет активной кнопки */
-}
-.controls {
-    margin-bottom: 10px;
-}
 .l1{
   display: flex;
   border: 3px solid aqua;
   width: 520px;
   height: 520px;
+}
+.butRight{
+    position: absolute;
+    left: 450px;
 }
