@@ -66,10 +66,3 @@ function draw(e) {
     lastX = x;
     lastY = y;
 }
-
-function getCoordinates(e) {
-    const rect = canvas.getBoundingClientRect();
-    const x = (e.clientX || e.touches[0].clientX) - rect.left;
-    const y = (e.clientY || e.touches[0].clientY) - rect.top;
-    return [x, y];
-}
