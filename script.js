@@ -9,6 +9,8 @@ const brushSizeInput = document.getElementById('brushSize');
 const eraserSizeInput = document.getElementById('eraserSize');
 const freeDrawBtn = document.getElementById('freeDrawBtn');
 const eraserBtn = document.getElementById('eraserBtn');
+const saveBut = document.getElementById("save");
+const deleteBut = document.getElementById("delete");
 
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mousemove', draw);
@@ -77,3 +79,28 @@ function getCoordinates(e) {
     const y = (e.clientY || e.touches[0].clientY) - rect.top;
     return [x, y];
 }
+
+saveBut.addEventListener('click', () => {
+    const dataUrl = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.href = dataUrl;
+    let name = "";
+    name = prompt("Введите название вашего шедевра");
+    if(name === ""){
+        alert("Вы не ввели название.")
+    }
+    else if (name === null){
+        alert("Ну ок. Отмена так отмена :)")
+    }
+    else{
+        link.download = name;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+});
+
+deleteBut.addEventListener('click', () => {
+    let sure = confirm("Вы точно хотите удалить ваш шедевр?");
+    if(sure){window.location.reload();}
+});
