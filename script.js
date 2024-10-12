@@ -22,16 +22,28 @@ canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', stopDrawing);
 
 freeDrawBtn.addEventListener('click', () => {
-    freeDrawBtn.style = "background-color: red";
-    eraserBtn.style = "background-color: gray";
-    mode = 'free';
-    setActiveButton(freeDrawBtn);
+    if(mode !== 'free'){
+        freeDrawBtn.style = "background-color: red";
+        eraserBtn.style = "background-color: gray";
+        mode = 'free';
+        setActiveButton(freeDrawBtn);
+    }
+    else{
+        mode = '';
+        freeDrawBtn.style = "background-color: gray";
+    }
 });
 eraserBtn.addEventListener('click', () => {
-    freeDrawBtn.style = "background-color: gray";
-    eraserBtn.style = "background-color: red";
-    mode = 'eraser';
-    setActiveButton(eraserBtn);
+        if(mode !== 'eraser'){
+        freeDrawBtn.style = "background-color: gray";
+        eraserBtn.style = "background-color: red";
+        mode = 'eraser';
+        setActiveButton(eraserBtn);
+    }
+    else{
+        mode = '';
+        eraserBtn.style = "background-color: gray";
+    }
 });
 
 function startDrawing(e) {
@@ -59,7 +71,7 @@ function draw(e) {
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(x, y);
-    } else{
+    } else if(mode === 'eraser'){
         ctx.clearRect(x - brushSize / 2, y - brushSize / 2, brushSize, brushSize);
     }
     lastX = x;

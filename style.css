@@ -13,3 +13,8 @@ canvas {
     position: absolute;
     left: 450px;
 }
+.rangers{
+  width: 100px;
+  position: absolute;
+  left: 120px;
+}

@@ -12,15 +12,12 @@
 </div>
 <div class="controls">
     <button id="freeDrawBtn" style="background-color: gray">Ручка</button>
-    Размер:
-    <input size="4" id="brushSize" value="5" min="1" max="50">
-    Цвет:
-    <button id="colorSet">Сменить</button>
+    <button id="colorSet">Цвет</button>
+    <input class="rangers" type="range" min="1" max="20" id="brushSize">
     <button class="butRight" style="background-color: green;" id="save">Сохранить</button>
     <p>
     <button id="eraserBtn" style="background-color: gray">Стерка</button>
-    Размер:
-    <input size="4" id="eraserSize" value="10" min="1" max="50">
+    <input class="rangers" type="range" min="1" max="100" step = "2" id="eraserSize">
     <button class="butRight" style="background-color: red;" id="delete">Удалить</button>
 </div>
 <script src="script.js"></script>
