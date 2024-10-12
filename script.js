@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let drawing = false;
-let mode = 'free'; // 'free' for free drawing, 'straight' for straight lines, 'eraser' for eraser
+let mode; // 'free' for free drawing, 'eraser' for eraser
 let lastX = 0;
 let lastY = 0;
 
@@ -11,6 +11,7 @@ const freeDrawBtn = document.getElementById('freeDrawBtn');
 const eraserBtn = document.getElementById('eraserBtn');
 const saveBut = document.getElementById("save");
 const deleteBut = document.getElementById("delete");
+const colorSet = document.getElementById("colorSet");
 
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mousemove', draw);
@@ -53,22 +54,14 @@ function draw(e) {
     ctx.lineCap = 'round';
 
     if (mode === 'free') {
-        ctx.strokeStyle = 'black';
+        ctx.strokeStyle = mainColors[colNum];
         ctx.lineTo(x, y);
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(x, y);
-    } else if (mode === 'straight') {
-        ctx.strokeStyle = 'black';
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Удаляем рисунок для рисования прямой
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(x, y);
-        ctx.stroke();
-    } else if (mode === 'eraser') {
+    } else{
         ctx.clearRect(x - brushSize / 2, y - brushSize / 2, brushSize, brushSize);
     }
-
     lastX = x;
     lastY = y;
 }
@@ -104,3 +97,15 @@ deleteBut.addEventListener('click', () => {
     let sure = confirm("Вы точно хотите удалить ваш шедевр?");
     if(sure){window.location.reload();}
 });
+
+const mainColors = ["#000000", "#FF0000", "#008000", "#0000FF", "#FFFF00"];
+let colNum = 0;
+
+colorSet.style.backgroundColor = mainColors[colNum];
+colorSet.style.color = "white";
+
+colorSet.addEventListener('click', () => {
+    if(colNum === 4){colNum = 0;}
+    else{colNum++;}
+    colorSet.style.backgroundColor = mainColors[colNum];
+})
